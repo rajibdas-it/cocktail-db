@@ -19,13 +19,27 @@ const displayCocktail = (cocktails) => {
             <p class="card-text">
                 ${cocktail.strInstructions.slice(0, 30)}...
             </p>
-            <a href="#" class="btn btn-dark">See More</a>
+            <a href="#" onclick="itemDetails('${
+              cocktail.idDrink
+            }')" class="btn btn-dark">See More</a>
         </div>
     </div>
     
     `;
     showCocktail.appendChild(cocktailDiv);
   });
+};
+
+const itemDetails = (id) => {
+  const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
+  //   console.log(url);
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayItem(data.drinks[0]));
+};
+
+const displayItem = (item) => {
+  console.log(item);
 };
 
 loadCocktail();
