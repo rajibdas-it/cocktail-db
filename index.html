@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body style="background-color: #230312">
     <header>
       <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
@@ -41,17 +41,23 @@
                 <a class="nav-link text-white" href="#">Link</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            <div class="d-flex" role="search">
               <input
+                id="search-field"
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-light" type="submit">
+              <button
+                id="search-btn"
+                onclick="searchString()"
+                class="btn btn-outline-light"
+                type="submit"
+              >
                 Search
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </nav>
@@ -60,6 +66,51 @@
       <section>
         <div id="show-cocktail" class="row row-cols-1 row-cols-md-3 g-4"></div>
       </section>
+
+      <!-- Modal Start -->
+      <section>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 id="modal-title" class="modal-title" id="exampleModalLabel">
+                  Modal title
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div id="modal-body" class="modal-body"></div>
+              <div id="modal-footer" class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  style="background-color: #230312"
+                  type="button"
+                  class="btn btn-dark"
+                >
+                  Show Receipe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Modal End -->
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
